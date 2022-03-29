@@ -16,7 +16,7 @@
 // X can be placed before L (50) and C (100) to make 40 and 90.
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
-pub struct Solution;
+struct Solution;
 
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {
@@ -41,12 +41,11 @@ impl Solution {
             prev = curr;
         }
         result
-
     }
 }
 
 fn main() {
-    println!("{}", Solution::roman_to_int("III"));
+    println!("{}", Solution::roman_to_int("MXCIII".to_owned()));
 }
 
 
