@@ -40,5 +40,7 @@ impl Solution {
 }
 
 fn main() {
-
+    let nums = vec![-1, 0, 1, 2, -1, -4];
+    let res = Solution::three_sum(nums);
+    println!("{:?}", res);
 }
