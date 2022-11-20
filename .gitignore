@@ -10,6 +10,9 @@ node_modules
 # VSCode
 .vscode
 
+# Nix
+result
+
 # Distribution / packaging
 .Python
 build/
