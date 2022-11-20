@@ -18,8 +18,6 @@
       naersk-lib = pkgs.callPackage naersk { };
       # Package set for this system, add packages here
     in {
-      defaultPackage = naersk-lib.buildPackage ./.;
-
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           python39Packages.numpy
@@ -33,7 +31,6 @@
           pre-commit
           rustPackages.clippy
         ];
-        RUST_SRC_PATH = rustPlatform.rustLibSrc;
       };
     });
 }
