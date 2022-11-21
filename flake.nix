@@ -5,19 +5,22 @@
     naersk.url = "github:nix-community/naersk";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    naersk,
-  }:
-    flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
+  outputs =
+    { self
+    , nixpkgs
+    , flake-utils
+    , naersk
+    ,
+    }:
+    flake-utils.lib.eachDefaultSystem (system:
+    let
       pkgs = import nixpkgs {
         inherit system;
       };
       naersk-lib = pkgs.callPackage naersk { };
       # Package set for this system, add packages here
-    in {
+    in
+    {
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           python39Packages.numpy
