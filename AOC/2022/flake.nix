@@ -56,6 +56,8 @@
       cargo-tarpaulin
       clippy
     ];
+
+    alias = "aoc -s /home/merrinx/Projects/leetcode/AOC/2022/.adventofcode.session";
   in
     with pkgs; {
       packages.${system} = {
@@ -65,6 +67,15 @@
 
       devShells.${system}.default = mkShell {
         nativeBuildInputs = nativeBuildInputs ++ [pkgs.aoc-cli];
+        shellHook = ''
+          if [ -z ''${IS_DIRENV} ];
+          then
+            alias aoc="${alias}";
+          else
+            export_alias aoc '${alias} $@'
+          fi
+          echo HI
+        '';
       };
     };
 }
